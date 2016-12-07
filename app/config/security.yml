@@ -1,0 +1,40 @@
+security:
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: [ ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH ]
+
+    providers:
+        main:
+            entity: { class: AcmeSocialNetworkBundle:User, property: email }
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt|error)|css|images|js)/
+            security: false
+        secured_area:
+            pattern:  ^/socialnetwork/
+            anonymous: ~
+            form_login:
+                login_path:   /socialnetwork/login
+                check_path:   /socialnetwork/login_check
+
+                always_use_default_target_path: false
+                default_target_path:            /socialnetwork/user
+                target_path_parameter:          _target_path
+                use_referer:                    false
+                remember_me:                    true
+
+            remember_me:
+                key:      "%secret%"
+                lifetime: 31536000
+                path:     /
+                domain:   ~
+                name: "%session.remember_me.name%"
+
+    encoders:
+        Acme\SocialNetworkBundle\Entity\User:
+            algorithm:        sha1
+            encode_as_base64: false
+            iterations:       1
+

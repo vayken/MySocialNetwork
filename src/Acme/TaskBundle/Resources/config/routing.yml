@@ -1,0 +1,6 @@
+acme_task_homepage:
+    path:     /task
+    defaults: { _controller: AcmeTaskBundle:Default:index }
+task_success:
+    path:     /task_validation
+    defaults: { _controller: AcmeTaskBundle:TaskValidation:index }

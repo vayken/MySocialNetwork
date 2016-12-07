@@ -1,0 +1,5 @@
+Acme\TaskBundle\Entity\TaskUnit:
+  properties:
+    task:
+      - NotBlank: ~
+      - Length: {min: 2, max: 5, minMessage: "task value too short", maxMessage: "task value too large"}

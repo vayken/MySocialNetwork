@@ -1,0 +1,12 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+	{% stylesheets 'bundles/acmehello/css/index.css' filter='cssrewrite' %}
+	<link rel="stylesheet" href="{{ asset_url }}" />
+	{% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+	<strong>Helloee {{name}}! Waddup!</strong>
+	{{ include('AcmeHelloBundle:Hello:names.html.twig') }}
+{% endblock %}

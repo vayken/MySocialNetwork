@@ -1,0 +1,35 @@
+Acme\SocialNetworkBundle\Entity\User:
+  constraints:
+      - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: email
+            message: "This email is already in use."
+
+  properties:
+    firstName:
+      - NotBlank: ~
+      - Length: {min: 2, max: 30, minMessage: "The first name must contain atleast {{ limit }} characters", maxMessage: "The first name cannot exceed {{ limit }} characters"}
+
+    lastName:
+      - NotBlank: ~
+      - Length: {min: 2, max: 30, minMessage: "The last name must contain atleast {{ limit }} characters", maxMessage: "The last name cannot exceed {{ limit }} characters"}
+
+    email:
+      - NotBlank: ~
+      - Email:
+          message: "{{ value }} is not a valid Email adress."
+          checkMX: true
+
+    mobile:
+      - Type:
+          type: numeric
+          message: "The mobile number is not a valid number."
+
+    password:
+      - NotBlank: ~
+      - Length: {min: 6, max: 20, minMessage: "The password must contain atleast {{ limit }} characters", maxMessage: "The password cannot exceed {{ limit }} characters"}
+
+    birthDay:
+      - NotBlank: ~
+      - Date: ~
+
+

@@ -1,0 +1,6 @@
+create forms
+practice database managing
+practice constrains after setting up forms
+create a registration form
+do all the suggested projects on your bookmarked websites
+in symfony, and then without symfony

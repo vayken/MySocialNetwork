@@ -1,0 +1,4 @@
+services:
+#    acme_social_network.example:
+#        class: Acme\SocialNetworkBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

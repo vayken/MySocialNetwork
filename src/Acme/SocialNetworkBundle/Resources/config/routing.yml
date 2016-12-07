@@ -1,0 +1,22 @@
+acme_social_network_homepage:
+    path:     /socialnetwork
+    defaults: { _controller: AcmeSocialNetworkBundle:Default:index }
+
+acme_social_network_user_page:
+    path:     /socialnetwork/user
+    defaults: { _controller: AcmeSocialNetworkBundle:UserPage:index }
+
+acme_social_network_email_confirmation_page:
+    path:     /socialnetwork/confirm/registration/{uniqueId}
+    defaults: { _controller: AcmeSocialNetworkBundle:RegistrationConfirm:index }
+
+login:
+    path:   /socialnetwork/login
+    defaults:  { _controller: AcmeSocialNetworkBundle:Default:index }
+
+login_check:
+    path:   /socialnetwork/login_check
+
+disconnect:
+    path:   /socialnetwork/disconnect
+    defaults: { _controller: AcmeSocialNetworkBundle:Disconnect:index }

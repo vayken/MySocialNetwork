@@ -1,0 +1,50 @@
+
+lifecycles names : 
+preRemove
+• postRemove
+• prePersist
+• postPersist
+• preUpdate
+• postUpdate
+• postLoad
+• loadClassMetadata
+--------------------------------------------------------------------
+metadata to create an entity repository
+@ORM\Entity(repositoryClass="Acme\StoreBundle\Entity\ProductRepository")
+and then the classical command to generate the entities via doctrine
+$this->getEntityManager()->createQuery in the repo (use DQL not SQL)
+---------------------------------------------------------------------
+$query = $this->getEntityManager()
+->createQuery('
+SELECT p, c FROM AcmeStoreBundle:Product p
+JOIN p.category c
+WHERE p.id = :id'
+)->setParameter('id', $id);
+
+--------------------------------------------------------------------
+
+$this->getEntityManager()
+->createQuery(
+'SELECT p FROM AcmeStoreBundle:Product p ORDER BY p.name ASC'
+)
+
+-----------------------------------------------------------------------
+
+you can use DateTime Object (look at DateTime docs)
+
+symfony cookbook : create personalized constrains
+
+isSubmitted() to check if a form is submitted rather than
+isValid to check the values following a set of constraint
+
+--------------------------------------------------------------------------
+Add this to your form class to set the datatype to an object
+making it easier when you put together load of forms
+
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+public function setDefaultOptions(OptionsResolverInterface $resolver)
+{
+$resolver->setDefaults(array(
+'data_class' => 'Acme\TaskBundle\Entity\Task',
+));
+}

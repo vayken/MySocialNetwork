@@ -1,0 +1,25 @@
+//todo to move the dev env into web
+$ php app/console assets:install --symlink
+//todo to dump into prod env
+$ php app/console assetic:dump --env=prod --no-debug
+
+//create bundle
+$ php app/console generate:bundle --namespace=Acme/StoreBundle
+php app/console generate:bundle --namespace=Acme/HelloBundle --format=yml
+
+//configure db in parameters.yml in app/config and create db
+$ php app/console doctrine:database:create
+//delete database
+php app/console doctrine:database:drop --force
+
+//generate all the mapped objects into entity
+$ php app/console doctrine:generate:entities AcmeStoreBundle
+$ php app/console doctrine:generate:entities Acme
+
+//create the table in the database
+$ php app/console doctrine:schema:update --force
+
+//generate the entity 
+php app/console doctrine:generate:entity 
+--entity="AcmeStoreBundle:Product" 
+--fields="name:string(255) price:float description:text"

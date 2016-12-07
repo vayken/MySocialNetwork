@@ -1,0 +1,19 @@
+acme_social_network:
+    resource: "@AcmeSocialNetworkBundle/Resources/config/routing.yml"
+    prefix:   /
+
+acme_task:
+    resource: "@AcmeTaskBundle/Resources/config/routing.yml"
+    prefix:   /
+
+acme_store:
+    resource: "@AcmeStoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
+acme_hello:
+    resource: "@AcmeHelloBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
